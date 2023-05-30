@@ -7,7 +7,7 @@ export function Loading() {
         className="bg-white p-5 rounded-md shadow-md"
       >
         <svg
-          className="h-4 w-4 animate-spin stroke-gray-500"
+          className="h-4 w-4 animate-spin stroke-[#A11CF3]"
           viewBox="0 0 256 256"
         >
           <line
