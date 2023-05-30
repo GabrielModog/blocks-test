@@ -3,6 +3,8 @@ import { useInfiniteQuery } from "react-query";
 
 import { BlockList } from "./components/List";
 import { useBlocks } from "./useBlocks";
+import { EmptyList } from "./components/Empty";
+import { Loading } from "./components/Loading";
 
 export default function Blocks() {
   const observerTarget = useRef(null);
@@ -14,7 +16,7 @@ export default function Blocks() {
     return fetched.data;
   }
 
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery(
+  const { data, isLoading, isFetching, fetchNextPage } = useInfiniteQuery(
     ["blocks"],
     ({ pageParam = 10 }) => fetchBlocks(pageParam),
     {
@@ -49,10 +51,12 @@ export default function Blocks() {
 
   return (
     <>
-      {pages &&
-        pages.map((page, index) => (
-          <BlockList key={index} list={page} isLoading={isLoading} />
-        ))}
+      {pages ? (
+        pages.map((page, index) => <BlockList key={index} list={page} />)
+      ) : (
+        <EmptyList />
+      )}
+      {(isLoading || isFetching) && <Loading />}
       <div ref={observerTarget} />
     </>
   );

@@ -10,5 +10,4 @@ export interface BlockItemProps {
 
 export interface BlocksListProps {
   list: BlockItemProps[];
-  isLoading?: boolean;
 }
