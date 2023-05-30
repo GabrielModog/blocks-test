@@ -5,7 +5,9 @@ export default function Header() {
   const [hidden, setHidden] = useBanner();
   return (
     <>
-      <Banner isShowing={hidden} handleToggle={setHidden} />
+      <div className="hidden md:block">
+        <Banner isShowing={hidden} handleToggle={setHidden} />
+      </div>
       <header className="container-md h-[80px] flex flex-col items-center justify-between">
         <div className="flex items-center justify-center flex-grow">
           <Link href="/">

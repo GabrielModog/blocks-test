@@ -1,6 +1,8 @@
 import { FOOTER_LINKS } from "@/utils/constants";
+import { Banner, useBanner } from "../Banner";
 
 export default function Footer() {
+  const [hidden, setHidden] = useBanner();
   return (
     <footer>
       <nav className="flex flex-col items-start md:items-center justify-center p-4 bg-gray-100">
@@ -12,6 +14,9 @@ export default function Footer() {
           ))}
         </ul>
       </nav>
+      <div className="md:hidden block">
+        <Banner isShowing={hidden} handleToggle={setHidden} />
+      </div>
     </footer>
   );
 }

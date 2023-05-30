@@ -1,10 +1,15 @@
 import { LuArrowUpRight } from "react-icons/lu";
 
-import { BLOCK_ITEM_WIDTH } from "../Blocks.constants";
+import {
+  MAX_BLOCK_ITEM_WIDTH,
+  MAX_BLOCK_ITEM_HEIGHT,
+  MIN_BLOCK_ITEM_WIDTH,
+  MIN_BLOCK_ITEM_HEIGHT,
+} from "../Blocks.constants";
 import { BlockItemProps } from "../Blocks.types";
 import { useBlocks } from "../useBlocks";
 
-const blockItemClassName = `w-[${BLOCK_ITEM_WIDTH}px] h-[${BLOCK_ITEM_WIDTH}px]`;
+const blockItemClassName = `max-w-[${MAX_BLOCK_ITEM_WIDTH}px] max-h-[${MAX_BLOCK_ITEM_HEIGHT}px] min-w-[${MIN_BLOCK_ITEM_WIDTH}px] min-h-[${MIN_BLOCK_ITEM_HEIGHT}px]`;
 
 export function BlockItem({ id, premium, details }: BlockItemProps) {
   const blocksService = useBlocks();
@@ -12,14 +17,14 @@ export function BlockItem({ id, premium, details }: BlockItemProps) {
     <a href="#">
       <div
         className={
-          "grid grid-cols-1 rounded-md border border-gray-300 " +
+          "grid grid-cols-1 rounded-md border border-gray-300" +
           blockItemClassName
         }
       >
-        <div className="border-b overflow-hidden border-gray-300 h-[137px]">
+        <div className="flex justify-center items-center border-b overflow-hidden border-gray-300  min-h-[183px] max-h-[198px]">
           <img
             src={`${blocksService.getImageById(id)}`}
-            className="object-center object-fill rounded-md"
+            className="max-w-[136px] object-center object-fill rounded-md"
           />
         </div>
         <div className="grid grid-cols-3 items-center py-2">
