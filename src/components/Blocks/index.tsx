@@ -5,6 +5,7 @@ import { BlockList } from "./components/List";
 import { useBlocks } from "./useBlocks";
 import { EmptyList } from "./components/Empty";
 import { Loading } from "./components/Loading";
+import { listImageWrapper } from "./utils";
 
 export default function Blocks() {
   const observerTarget = useRef(null);
@@ -26,7 +27,7 @@ export default function Blocks() {
     }
   );
 
-  const pages = data?.pages;
+  const pages = data?.pages.map((page) => listImageWrapper(page));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,8 +52,8 @@ export default function Blocks() {
 
   return (
     <>
-      {pages ? (
-        pages.map((page, index) => <BlockList key={index} list={page} />)
+      {pages?.length !== 0 || !pages ? (
+        pages?.map((page, index) => <BlockList key={index} list={page} />)
       ) : (
         <EmptyList />
       )}
