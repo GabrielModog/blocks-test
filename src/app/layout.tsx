@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={"flex flex-col justify-between min-h-screen"}>
         <Banner isShowing={hidden} handleToggle={setHidden} />
         <header className="container-md flex items-center justify-center py-4 bg-slate-200 border-b-2 border-indigo-600">
-          <Image src="/logo.png" alt="Blocks" width={147} height={54} />
+          <img src="/logo.png" alt="blocks" className="w-[91px] md:w-[146px]" />
         </header>
         {children}
         <footer>

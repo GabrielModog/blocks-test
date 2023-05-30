@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import Blocks from "@/components/Blocks";
 import { HEADER_TITLE, SECTION_TITLE } from "@/utils/constants";
+import Button from "@/components/Button";
 
 export default function Home() {
   const [state, setState] = useState([]);
@@ -16,7 +17,7 @@ export default function Home() {
         setState(res);
       });
   }, []);
-  console.log(state);
+
   return (
     <main className="flex flex-col items-start grow">
       <section className="w-full">
@@ -28,12 +29,6 @@ export default function Home() {
         <div className="container-lg py-4 mx-auto w-5/6">
           <h3 className="text-xl font-semibold py-4">{SECTION_TITLE}</h3>
           <Blocks list={state} />
-          {/* <ul className="grid grid-cols-2 md:grid-cols-7 gap-2">
-            {state &&
-              state.map((item: any) => (
-                <li key={item.id}>{item.details.name}</li>
-              ))}
-          </ul> */}
         </div>
       </section>
     </main>
