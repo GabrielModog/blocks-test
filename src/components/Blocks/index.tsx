@@ -14,7 +14,7 @@ export default function Blocks() {
     return fetched.data;
   }
 
-  const { data, fetchNextPage } = useInfiniteQuery(
+  const { data, isLoading, fetchNextPage } = useInfiniteQuery(
     ["blocks"],
     ({ pageParam = 10 }) => fetchBlocks(pageParam),
     {
@@ -50,7 +50,9 @@ export default function Blocks() {
   return (
     <>
       {pages &&
-        pages.map((page, index) => <BlockList key={index} list={page} />)}
+        pages.map((page, index) => (
+          <BlockList key={index} list={page} isLoading={isLoading} />
+        ))}
       <div ref={observerTarget} />
     </>
   );
