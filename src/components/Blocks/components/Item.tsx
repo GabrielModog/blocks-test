@@ -1,3 +1,5 @@
+import { LuArrowUpRight } from "react-icons/lu";
+
 import { BLOCK_ITEM_WIDTH } from "../Blocks.constants";
 import { BlockItemProps } from "../Blocks.types";
 
@@ -20,7 +22,11 @@ export function BlockItem({ id, premium, details }: BlockItemProps) {
         <div className="col-span-2 leading-none text-left font-semibold text-[10px] indent-0 px-2">
           <p>{details.name}</p>
         </div>
-        <div className="col-span-1 border-l border-gray-300 h-8">Link</div>
+        <a href="#">
+          <div className="col-span-1 flex items-center justify-center border-l border-gray-300 h-8">
+            <LuArrowUpRight />
+          </div>
+        </a>
       </div>
     </div>
   );
