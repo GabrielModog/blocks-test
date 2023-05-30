@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 
 import Blocks from "@/components/Blocks";
+import { HEADER_TITLE, SECTION_TITLE } from "@/utils/constants";
 
 export default function Home() {
   const [state, setState] = useState([]);
@@ -21,11 +22,11 @@ export default function Home() {
       <section className="w-full">
         <div className="py-8 bg-white drop-shadow-md">
           <h1 className="text-3xl font-bold text-black mx-auto w-5/6">
-            Catálogo
+            {HEADER_TITLE}
           </h1>
         </div>
         <div className="container-lg py-4 mx-auto w-5/6">
-          <h3 className="text-xl font-semibold py-4">Resultados</h3>
+          <h3 className="text-xl font-semibold py-4">{SECTION_TITLE}</h3>
           <Blocks list={state} />
           {/* <ul className="grid grid-cols-2 md:grid-cols-7 gap-2">
             {state &&

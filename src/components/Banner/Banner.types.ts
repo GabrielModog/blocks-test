@@ -1,4 +1,4 @@
 export interface BannerProps {
-  isShowing?: boolean;
-  handleToggle?: () => void;
+  isShowing: boolean;
+  handleToggle: () => void;
 }

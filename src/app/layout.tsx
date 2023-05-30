@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { Banner } from "@/components/Banner";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { Banner, useBanner } from "@/components/Banner";
+import { FOOTER_LINKS } from "@/utils/constants";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,10 +15,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [hidden, setHidden] = useBanner();
   return (
     <html lang="en">
-      <body className="flex flex-col justify-between min-h-screen">
-        <Banner />
+      <body className={"flex flex-col justify-between min-h-screen"}>
+        <Banner isShowing={hidden} handleToggle={setHidden} />
         <header className="container-md flex items-center justify-center py-4 bg-slate-200 border-b-2 border-indigo-600">
           <Image src="/logo.png" alt="Blocks" width={147} height={54} />
         </header>
@@ -27,18 +27,11 @@ export default function RootLayout({
         <footer>
           <nav className="flex flex-col items-start md:items-center justify-center p-4 bg-slate-200">
             <ul className="flex flex-col md:flex-row text-gray-600 text-md md:text-sm">
-              <li className="sm:mx-1 my-2 md:my-0 md:mx-4">
-                <a href="#">Sobre</a>
-              </li>
-              <li className="sm:mx-1 my-2 md:my-0 md:mx-4">
-                <a href="#">FAQ</a>
-              </li>
-              <li className="sm:mx-1 my-2 md:my-0 md:mx-4">
-                <a href="#">Termo de Uso</a>
-              </li>
-              <li className="sm:mx-1 my-2 md:my-0 md:mx-4">
-                <a href="#">Politica de privacidade</a>
-              </li>
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.text} className="sm:mx-1 my-2 md:my-0 md:mx-4">
+                  <a href={link.link}>{link.text}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </footer>
