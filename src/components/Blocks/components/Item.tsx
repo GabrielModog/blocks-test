@@ -2,10 +2,12 @@ import { LuArrowUpRight } from "react-icons/lu";
 
 import { BLOCK_ITEM_WIDTH } from "../Blocks.constants";
 import { BlockItemProps } from "../Blocks.types";
+import { useBlocks } from "../useBlocks";
 
 const blockItemClassName = `w-[${BLOCK_ITEM_WIDTH}px] h-[${BLOCK_ITEM_WIDTH}px]`;
 
 export function BlockItem({ id, premium, details }: BlockItemProps) {
+  const blocksService = useBlocks();
   return (
     <a href="#">
       <div
@@ -16,7 +18,7 @@ export function BlockItem({ id, premium, details }: BlockItemProps) {
       >
         <div className="border-b overflow-hidden border-gray-300 h-[137px]">
           <img
-            src={`https://plugin-storage.nyc3.digitaloceanspaces.com/families/images/${id}.jpg`}
+            src={`${blocksService.getImageById(id)}`}
             className="object-center object-fill rounded-md"
           />
         </div>
