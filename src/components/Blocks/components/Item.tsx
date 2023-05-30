@@ -16,7 +16,7 @@ export function BlockItem({ id, premium, details }: BlockItemProps) {
       <div className="border-b overflow-hidden border-gray-300 h-[137px]">
         <img
           src={`https://plugin-storage.nyc3.digitaloceanspaces.com/families/images/${id}.jpg`}
-          className="object-center object-fill"
+          className="object-center object-fill rounded-md"
         />
       </div>
       <div className="grid grid-cols-3 items-center py-2">

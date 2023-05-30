@@ -12,6 +12,7 @@ export default function Button({
   children,
   withIcon,
   iconSize = 24,
+  ...props
 }: ButtonProps) {
   return (
     <div
@@ -28,8 +29,8 @@ export default function Button({
           "
     >
       <button
-        type="button"
         className="flex flex-row items-center justify-between text-white h-full w-full py-1 px-4 duration-150 rounded-lg bg-transparent hover:bg-[#6F6F6FCC] back"
+        {...props}
       >
         <span className="text-md font-semibold ">{children}</span>
         {withIcon && (
