@@ -5,18 +5,18 @@ export const SECTION_TITLE = "Resultados";
 export const FOOTER_LINKS = [
   {
     text: "Sobre",
-    link: "#",
+    href: "#",
   },
   {
     text: "FAQ",
-    link: "#",
+    href: "#",
   },
   {
     text: "Termos de uso",
-    link: "#",
+    href: "#",
   },
   {
     text: "Politica de privacidade",
-    link: "#",
+    href: "#",
   },
 ];

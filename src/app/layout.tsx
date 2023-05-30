@@ -4,6 +4,8 @@ import Image from "next/image";
 import "./globals.css";
 import { Banner, useBanner } from "@/components/Banner";
 import { FOOTER_LINKS } from "@/utils/constants";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,26 +17,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [hidden, setHidden] = useBanner();
   return (
     <html lang="en">
       <body className={"flex flex-col justify-between min-h-screen"}>
-        <Banner isShowing={hidden} handleToggle={setHidden} />
-        <header className="container-md flex items-center justify-center py-4 bg-slate-200 border-b-2 border-indigo-600">
-          <img src="/logo.png" alt="blocks" className="w-[91px] md:w-[146px]" />
-        </header>
+        <Header />
         {children}
-        <footer>
-          <nav className="flex flex-col items-start md:items-center justify-center p-4 bg-slate-200">
-            <ul className="flex flex-col md:flex-row text-gray-600 text-md md:text-sm">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.text} className="sm:mx-1 my-2 md:my-0 md:mx-4">
-                  <a href={link.link}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
