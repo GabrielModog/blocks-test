@@ -29,7 +29,7 @@ export default function Button({
           "
     >
       <button
-        className="flex flex-row items-center justify-between text-white h-full w-full py-1 px-4 duration-150 rounded-lg bg-transparent hover:bg-[#6F6F6FCC] back"
+        className="flex flex-row items-center justify-between text-white h-full w-full py-1 px-4 duration-150 rounded-lg bg-[#6f6f6f62] active:bg-transparent hover:bg-[#6f6f6fdc] back"
         {...props}
       >
         <span className="text-md font-semibold ">{children}</span>

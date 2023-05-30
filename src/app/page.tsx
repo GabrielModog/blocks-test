@@ -22,13 +22,13 @@ export default function Home() {
   return (
     <main className="flex flex-col items-start grow">
       <section className="w-full">
-        <div className="py-8 bg-white drop-shadow-md">
+        <div className="py-6 bg-white drop-shadow-md">
           <div className="mx-auto w-5/6">
             <Heading>{HEADER_TITLE}</Heading>
           </div>
         </div>
-        <div className="container-lg py-4 mx-auto w-5/6">
-          <h3 className="text-xl font-semibold py-4">{SECTION_TITLE}</h3>
+        <div className="container-lg mx-auto w-5/6">
+          <h3 className="text-xl font-semibold mt-4 mb-2">{SECTION_TITLE}</h3>
           <Blocks list={state} />
         </div>
       </section>
