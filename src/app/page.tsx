@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import Blocks from "@/components/Blocks";
+
 export default function Home() {
   const [state, setState] = useState([]);
 
@@ -22,14 +24,15 @@ export default function Home() {
             Catálogo
           </h1>
         </div>
-        <div className="container-lg mx-auto w-5/6">
+        <div className="container-lg py-4 mx-auto w-5/6">
           <h3 className="text-xl font-semibold py-4">Resultados</h3>
-          <ul className="grid grid-cols-2 md:grid-cols-7 gap-2">
+          <Blocks list={state} />
+          {/* <ul className="grid grid-cols-2 md:grid-cols-7 gap-2">
             {state &&
               state.map((item: any) => (
                 <li key={item.id}>{item.details.name}</li>
               ))}
-          </ul>
+          </ul> */}
         </div>
       </section>
     </main>
